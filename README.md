@@ -1,6 +1,8 @@
 Angular-unsavedChanges
 ======================
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/3e29e5ef-977a-4c86-908a-3557aa6193c6/big.png)](https://insight.sensiolabs.com/projects/3e29e5ef-977a-4c86-908a-3557aa6193c6)
+
 Detect unsaved changes and alert user when he tries to leave the page without saving these changes
 
 Usage
