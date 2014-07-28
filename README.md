@@ -16,18 +16,22 @@ Usage
 
         angular.module('app', ['unsavedChanges']);
 
-3. Attach a listener and pass the two arguments: current `$scope` and object which changes the service should listen
-
-        unsavedChanges.fnListen($scope, $scope.myObject);
+3. Attach a listener and pass the three arguments: current `$scope`, slug of the listener (any random unique name, it's necessary because you can attach severl listeners at once) and object which changes the service should listen
+		
+		unsavedChanges.fnAttachListener($scope, 'products-changes', $scope.oPlChangeLog.oValues);
 
 4. To reattach listener, for example after saving the changes by user, use the same method.
     
-        $scope.myResource.$update(function(){
-            unsavedChanges.fnListen($scope, $scope.myResource);
-        })    
+        unsavedChanges.fnReAttachListener('products-changes');
 
-5. To remove all listeners, just call the `unsavedChanges.fnRemoveListener()` method. It's useful when you want to redirect user after deleting the object, for example.
+5. To detach one of the listeners.
+
+		unsavedChanges.fnDetachListener('products-changes');
+
+6. To remove all listeners, just call the `unsavedChanges.fnDetachListeners()` method. It's useful when you want to redirect user after deleting the object, for example.
         
-        $scope.myResource.$delete(function(){
-            unsavedChanges.fnRemoveListener();
-        })
+        unsavedChanges.fnDetachListeners();
+
+7. To check if the object you listen was changed:
+
+		unsavedChanges.fnHasChanges('products-changes');
